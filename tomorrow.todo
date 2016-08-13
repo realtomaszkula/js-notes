@@ -1,0 +1,17 @@
+
+ ✔ name three property descriptors @done (16-08-13 18:15)
+
+
+ ✔ what command do you use to display property descriptors @done (16-08-13 17:21)
+ ✔ what command do you use to chage property descriptor @done (16-08-13 17:21)
+
+ ✔ change property writable to readonly (remember about strict) and prevent it from being changed even if its an object @done (16-08-13 17:21)
+ ✔ change property enumerable to false and name what are the consequences @done (16-08-13 17:43)
+ ✔ change property configurable to false and name consequences @done (16-08-13 17:45)
+
+ ✔ how do you define getters and setters for simple objects? @done (16-08-13 17:53)
+ ✔ how do you extend an Array to give it first and last property? @done (16-08-13 17:54)
+
+ ✔ define Inheritence chain for Person and Child using prototype inheritance @done (16-08-13 18:01)
+ ✔ define Inheritence chain for Animal and Monkey using classes @done (16-08-13 18:12)
+ ✔ name difference between two methods above @done (16-08-13 18:15)

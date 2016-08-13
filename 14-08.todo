@@ -1,0 +1,304 @@
+
+
+ ☐ how to you write html tag for users without js?
+
+ ☐ what primitive types are in js? (string, number, boolean)
+
+ ☐ what type is null? (js treats it as empty object)
+ ☐ what type is NaN?
+ ☐ what type is undefined?
+ ☐ what type is [] in js?
+ ☐ what type is function () {} in js
+
+
+
+ ☐ whats the difference between function declaration and expression when it comes to global scope?
+
+
+ ☐ type loop with label
+
+ ☐ what are possible js variable names? ( $, _ or letter )
+
+
+ HOISTING
+
+ ☐ what shows in the console? (ref err)
+     console.log(productID)
+
+ ☐ what shows in the console? (undefined)
+     console.log(productID);
+     var productID = '9000'
+
+ ☐ what shows in the console? (NaN -> anytime num is undefined it shows NaN)
+   var total = price * qt
+   var price = 3.00;
+   var quantity = 5;
+
+
+
+ ☐ what shows in the console? ('hell0')
+   helloWorld()
+
+   function helloWorld() {
+     console.log('hellO!')
+   }
+
+   ☐ what shows in the console? ( type error )
+   helloWorld()
+
+   let helloWorld = function() {
+     console.log('hell0!')
+   }
+
+   ☐ what shows in the console?
+
+   console.log( 3.2e4 )
+   console.log( 3.2e-4)
+
+
+   NUMBERS
+
+   ☐ how to test if number is NaN? ( isNan() )
+
+   STRINGS
+
+   ☐ what shows in the console? (strings are immutable!)
+
+   let str = '   Test   '
+   str.trim()
+
+   console.log( '[' + str + ']')
+
+
+   BOOLEAN
+
+   ☐ what shows in the console?
+   console.log( Boolean(0))
+
+
+   If you want to wipe out variable assign it to null
+   js engine assigns undefined to all variables
+   so this way you know you meant it
+
+   ☐ what shows in the console?
+   console.log(undefined == null)
+     => true
+
+   // different types but js treats them as equal
+
+   console.log(undefined === null)
+     => false
+
+
+     Global scrope
+
+     ☐ what holds the global scope? all items not defined inside functions
+
+     ☐ what shows in the console?
+      console.log(this === window)
+
+
+   Operators
+
+   ☐ what function should u use on results of floating poits  operations?
+   ☐ what property of obj js  engine looks for in an obj if you try to use it as a number?
+
+     var obj = {
+       valueOf: function() { return 100; }
+     }
+
+     console.log( 300 - obj )
+       => 200
+
+
+
+   ADDITION
+
+   ☐ '200' + 10
+     => '20010'
+   ☐ "PRD" + 2000
+     => PRD2000
+   ☐ "PRD" + undefined
+     => PRDundefined
+   ☐ "PRD" + null
+     => PRDnull
+   ☐  "PRD" + NaN
+     => PRDNaN
+
+   ☐ 2000 + undefined
+     => NaN
+   ☐ 2000 + NaN
+     => NaN
+   ☐ 2000 + nulll
+     => 2000
+
+     SUBSTRACTION
+
+     ☐ "300" - "200"
+       => 100
+     ☐ 300 - ""
+       => 300
+     ☐ 300 - null
+       => 300
+
+     ☐ 'PRD' - 'Item'
+       => NaN
+     ☐ 300 - undefined
+       => NaN
+     ☐ 300 - NaN
+       => NaN
+
+     Multiplication
+
+     ☐ 20 * undefined
+       => NaN
+     ☐ 20 * null
+       => 0
+     ☐ 4 * 'XAQ'
+       => NaN
+     ☐ 9 * '3'
+       => 27
+
+    Division
+    ☐ 9 / '3'
+
+      => 3
+    ☐ 9 / 0
+      => Infinity
+    ☐ -9 / 0
+      => -Infinity
+
+
+    Modulus
+
+    9 % 4
+      => 1
+    9 % '4'
+      => 1
+    9 % '     4     '
+      => 1
+
+
+    UNARY OPERATORS
+
+    ☐ what shows in the console?
+    let level = 5
+    let nextLevel = level++;
+
+    console.log(nextLevel)
+      => 5
+
+    ☐ what shows in the console?
+    let level = 5
+    let nextLevel = ++level;
+
+    console.log(nextLevel)
+      => 6
+
+    ☐ what shows in the console?
+    let level = 5
+    let base = 10;
+    let nextLevel = level-- * base;
+
+    console.log(nextLevel)
+      => 50
+
+    ☐ what shows in the console?
+    let level = 5
+    let base = 10;
+    let nextLevel = --level * base;
+
+    console.log(nextLevel)
+      => 50
+
+     ☐ what shows in the console?
+     let level;
+
+     console.log(++level)
+       => NaN
+
+     ☐ what shows in the console?
+     let level = null;
+
+     console.log(++level)
+       => 1
+
+     ☐ what shows in the console?
+     let value = -9;
+     value = +value
+     console.log(value)
+       => -9
+
+    ☐ what shows in the console?
+    let value = -9;
+    value = -value
+    console.log(value)
+      => 9
+
+    // use - to flip the sign, + does nothing, won't turn negative to positive
+
+
+    BOOLEAN OPERATORS
+
+      &&
+      rules:
+        * if the first operand is an object the second operand is always going to be returned
+        * if the first operand evaluates as a boolean true the second operand is always going to be returned
+        * if either one of operands is null, null is returned
+        * if either one of operands is undefined, undefined is returned
+        * if either one of operands is NaN, NaN is returned
+
+        ☐ what shows in the console
+        let obj = {
+          calc: 'logical'
+        }
+
+        let value = obj && 98
+        console.log(value)
+          => 98
+
+
+        ☐ what shows in the console
+        let obj = {
+          calc: 'logical'
+        }
+
+        let value = true && obj
+        console.log(value)
+          => 98
+
+
+        ☐ what shows in the console
+        let value = null && 99
+        console.log(value)
+          => null
+
+        ☐ what shows in the console
+        let value = 'z' && null
+        console.log(value)
+          => null
+
+
+
+        ☐ what shows in the console
+        let value = 'z' && undefined
+        console.log(value)
+          => undefined
+
+        ☐ what shows in the console
+        let value = 'z' && NaN
+        console.log(value)
+          => undefined
+
+
+        ☐ what shows in the console
+        var value = false && productId;
+        console.log(value)
+
+        // normally you get an error, but runtime engine ignores right side if left side is false
+
+
+     ||
+
+
+
