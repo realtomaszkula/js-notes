@@ -1,0 +1,74 @@
+SYMBOLS
+rules:
+  * new primitive type
+  * always unique
+  * to acces symbol register use Symbol.for, Symbol.keyFor
+  * can be used as property on objects
+
+        http://plnkr.co/edit/9zZ6ArG44GLuDPyndvIV?p=preview
+
+         let s = Symbol('event')
+         let s2 = Symbol('event')
+         console.log(s === s2) // always uniq
+
+
+         // using symbol registry
+         let s3 = Symbol.for('event')
+         let s4 = Symbol.for('event')
+
+         console.log(s3 === s4)
+         console.log(Symbol.keyFor(s4))
+
+
+         // using as obj property
+
+          let article = {
+          title: 'Whiteface Mountain',
+          [Symbol.for('article')]: 'My Article'
+        }
+
+        console.log( article[Symbol.for('article')])
+        console.log(Object.getOwnPropertyNames(article))
+        console.log(Object.getOwnPropertySymbols(article))
+
+
+  // Symbol.toStringTag
+  http://plnkr.co/edit/Yqg8GDusRFxLgqlEzBjS?p=preview
+
+
+        let Blog = function() { }
+        let blog = new Blog();
+
+        console.log(blog.toString())
+        Blog.prototype[Symbol.toStringTag] = 'Blog class'
+        console.log(blog.toString())
+
+
+  // Symbol.isConcatSpreadable
+        http://plnkr.co/edit/azTqCniDeJlCCEXTKTrR?p=preview
+
+        let arr = [1,2,3]
+        console.log( [].concat(arr) )
+
+        arr[Symbol.isConcatSpreadable] = false;
+        console.log( [].concat(arr) )
+
+
+  // Symbol.toPrimitive
+  http://plnkr.co/edit/uF4MZhJ7uHAlk2q9p7PP?p=preview
+
+        let obj = {
+          [Symbol.toPrimitive](hint) {
+            if(hint === 'string') {
+              return 'string representation';
+            }
+            if(hint === 'number') {
+              return 123;
+            }
+            return 'default value'
+          }
+        }
+
+        console.log( `${obj}` )
+        console.log( +obj )
+        console.log( obj + '' )

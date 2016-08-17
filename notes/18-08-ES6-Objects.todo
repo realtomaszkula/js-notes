@@ -1,0 +1,62 @@
+OBJECT
+
+// Object.setPrototypeOf
+http://plnkr.co/edit/8ISznvWRGJOwwBR68zTt?p=preview
+
+    let obj1 = {
+      x: 1
+    }
+
+    let obj2 = {
+      y: 2
+    }
+
+    Object.setPrototypeOf(obj2, obj1)
+    console.log(obj2.x)
+
+// Object.assign
+http://plnkr.co/edit/8ISznvWRGJOwwBR68zTt?p=preview
+
+      rules:
+      * looks for enumerable properties direcly on the object
+      * does not walk the prototype chain
+
+
+      let first = {
+        a: 1
+      }
+
+      let second = {
+        a: 5,
+        b: 2
+      }
+
+      let third = {
+        d: 98
+      }
+
+      Object.setPrototypeOf(second, third)
+
+      Object.defineProperty(second, 'c', {
+        value: 99,
+        enumerable: false
+      })
+
+
+      let fourth = {}
+
+      Object.assign(fourth, first, second)
+      console.log(fourth)
+
+// Object.is
+
+      http://plnkr.co/edit/B3OjsqzAVuSWwVQe6NXB?p=preview
+
+        console.log( NaN === NaN)
+        console.log( Object.is(NaN, NaN))
+
+        console.log(0 === -0)
+        console.log(Object.is(-0, 0))
+
+// Object.getOwnPropertySymbols
+// Object.getOwnPropertyNames
