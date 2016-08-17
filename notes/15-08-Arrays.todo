@@ -1,0 +1,171 @@
+Pirmitive types:
+  ☐ string
+  ☐ number
+  ☐ boolean
+
+Reference Types:
+  ☐ Objects
+  ☐ Arrays
+  ☐ Dates
+  ☐ RegExp
+  ☐ functions
+  ☐ Primitives via wrappers
+
+
+Arrays:
+
+  let arr = ['Plains','Trains']
+  arr.length = 5
+    => ['Plains','Trains', undefined, undefined, undefined]
+
+  let arr = ['Plains','Trains']
+  arr.length = 1
+    => ['Plains']
+
+  let arr = ['Plains','Trains']
+  arr[4] = 'Cars'
+    => ['Plains','Trains',undefined, undefined, 'Cars']
+
+
+ ☐ what function should you use to get comma separated list of arr elements?
+    ['Plains','Trains'].toString()
+
+  ☐ what function should you use on numbers array to get list of elemets?
+    [1,2].valueOf()
+
+
+  ☐ concat
+    let ratings = [1,2]
+    let newRatings = ratings.concat([3,4], 5, 6)
+      => [1,2,3,4,5,6]
+
+   ☐ slice (second argument is not inclusive!)
+
+   let ratings = [1,2,3,4]
+   let newRatings = ratings.slice(1,3)
+     => [2,3]
+
+   let newRagins2 = ratings.slice(-2)
+     => [3,4]
+
+   ☐ array.splice(index,howmany,item1,.....,itemX) -> is destructive
+
+   let ratings = [1,2,3,4]
+   ratings.splice(1, 2)
+   console.log(ratings.toString())
+
+     => 1,4
+
+   let ratings = [1,2,3,4]
+   ratings.splice(2, 0, 99)
+   console.log(ratings.toString())
+
+     => [1, 2, 99, 3, 4]
+
+   let ratings = [1,2,3,4]
+   ratings.splice(2, 0, 99, 100, 101)
+   console.log(ratings.toString())
+
+     => [1, 2, 99, 100, 1001, 3, 4]
+
+
+   let ratings = [1,2,3,4]
+   ratings.splice(2, 1, 99)
+   console.log(ratings.toString())
+
+     => [1, 2, 99, 4]
+
+   ☐ sort
+
+   [4,1,3,5,2].sort()
+     => [1,3,4,5,2]
+
+   [2, 10, 1, 4].sort()
+     => [1, 10, 2, 4]
+
+   [2, 10, 1, 4].sort(function(val1, val2) {
+     return val1 - val2  // looking for positive value if num if bigger
+   })
+
+
+   ☐ indexOf
+
+   [1,2,3,4].indexOf(4)
+     => 3
+
+   [1,2,3,4].indexOf('4')  // no conversion
+     => -1
+
+   ☐ lastIndexOf
+   [1, 2, 3, 1].lastIndexOf(1)
+     => 3
+
+  Dates:
+
+    new Date()
+      => Sun Aug 14 2016 18:46:43 GMT+0200 (CEST)
+
+    new Date().toDateString()
+      => "Sun Aug 14 2016"
+
+    new Date().toTimeString()
+      => "18:56:06 GMT+0200 (CEST)"
+
+    new Date(0)
+      => Thu Jan 01 1970 01:00:00 GMT+0100 (CET)
+
+    new Date('1/14/2000')
+      => Fri Jan 14 2000 00:00:00 GMT+0100 (CET)
+
+    new Date(May, 19 1991)
+      => Sun May 19 1991 00:00:00 GMT+0200 (CEST)
+
+    new Date('Hi Mom!')
+      => Invalid Date       // won't throw exception
+
+    Date.parse('Hi Mom!')
+      => NaN
+
+    Date.UTC(1991, 4, 19) // month are 0 based
+      => 674611200000
+
+    new Date( Date.UTC(1991, 4, 19) )
+      => Sun May 19 1991 02:00:00 GMT+0200 (CEST)
+
+    Date.now()
+      => 1471193659415
+
+RegExp:
+
+  let text = "Sam I Am"
+  let pattern = /m/g
+
+  test()
+    pattern.test(text)
+      => true
+    pattern.test(text)
+      => true
+    pattern.test(text)
+      => false
+
+  exec()
+    let result =  pattern.exec(text)
+       => ["m", index: 2, input: "Sam I Am"]
+
+      result[0]
+        => "m"
+      result.index
+        => 2
+      restul.input
+        => "Sam I Am"
+
+  exec() in loop
+
+  let str = 'test string'
+  let pattern = /t/g
+
+  while (result = pattern.exec(str)) {
+    console.log(result.index)
+  }
+
+  => 0 3 6

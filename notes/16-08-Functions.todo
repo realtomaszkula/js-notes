@@ -1,0 +1,400 @@
+
+console.log(typeof Object)
+  => function
+
+
+
+constructor functions vs json:
+  var Employee = function (name) {
+  this.name = name;
+  this.giveRaise = function() {
+  };
+  }
+
+  console.log(typeof Employee.prototype)
+    => Object
+
+
+  Employee.prototype === Object.prototype
+    => false
+
+  Employee has its own empty prototype object
+
+
+  // note that we can use .prototype, not __proto__
+      constructor functions have acces to it
+        json objects to not
+
+      let p =   {}
+
+      p.prototype
+        => undefined
+
+      p.__proto__
+        => Object {}
+
+
+      p.__proto__  === Object.prototype
+        => true
+
+
+  Reason to use prototype:
+
+
+// WITHOUT PROTOTYPE
+
+  function Person(name) {
+    this.name = name;
+    this.sayName = function() {
+        console.log(this.name)
+    }
+  }
+
+  let tomasz = new Person('Tomasz')
+  let piotr = new Person("Piotr")
+
+  tomasz.sayName === piotr.sayName
+    => false
+
+// WITH PROTO
+
+ function Person(name) {
+   this.name = name;
+ }
+
+ Person.prototype.sayName = function(){ return this.name }
+
+ let tomasz = new Person('Tomasz')
+ let piotr = new Person("Piotr")
+
+ tomasz.sayName === piotr.sayName
+   => true
+
+
+This:
+
+  function:
+  function updateSalary() {
+    console.log(this === window)
+  }
+
+  updateSalary()
+    => true
+
+  obj:
+
+ *
+  let employee = {
+    name: 'Jeff',
+    updateSalary: function() {
+      console.log(this)
+    }
+  }
+
+  employeee.updateSalary()
+    => Jeff
+
+ *
+  let employee = {
+    name: 'Jeff',
+    updateSalary: function() {
+      let fn = function() {
+        console.log(this === window)
+      }
+      fn()
+      // fn doesnt have obj attached
+    }
+  }
+
+  employee.updateSalary()
+    => true
+
+
+*
+ when using new this gets assigned to the obj created by new
+
+ let Adress = function(line) {
+   this.line = line;
+ }
+
+ Adress.prototype.updateZipCode = function () {
+   console.log(this);
+ }
+
+ var addr = new Adress('Ruczaj')
+ addr.updateZipCode();
+   => Adress
+
+Call:
+
+  let updateZipCode = function () {
+      console.log(this)
+  }
+
+  let zipCode = {
+    zip: '11422'
+  }
+
+  updateZipCode.call(zipCode)
+    => Object { zip: '11422'}
+
+
+  with arguments:
+
+ let updateZipCode = function(newZip, country) {
+   console.log(newZip + ' ' + country);
+ }
+
+
+ let zipCode = {
+   zip: '11422'
+ }
+
+ updateZipCode.call(zipCode, '33234', 'us')
+   => '33234 us'
+
+Apply:
+
+  let updateZipCode = function(newZip, country) {
+    console.log(newZip + ' ' + country);
+  }
+
+
+  let zipCode = {
+    zip: '11422'
+  }
+
+  updateZipCode.apply(zipCode, ['33234', 'us'])
+    =>  '33234 us'
+
+
+Closures:
+
+
+let salaryUpdater = function(salary) {
+  let currentSalary = salary;
+  let generator = function() {
+    currentSalary *= 2;
+    return currentSalary;
+  }
+
+  return generator;
+}
+
+let updateFn = salaryUpdater(50000)
+
+console.log(updateFn() )
+
+
+mostly used in
+  event callbacks, setInterval, returning child function of parent function
+
+
+IIFEs:
+
+* creating *
+
+(function () {
+  console.log('executed!')
+})();
+
+(function() {
+  console.log('executed')
+}());
+
++function() {
+  console.log('executed')
+}
+
+
+
+// not polluting global namespace
+
+
+(function() {
+  let employeeName = 'Jill'
+})
+
+console.log(employeeName;)
+  => ReferenceError
+
+
+// namespacing app
+
+let app = {}
+
+(function(ns) {
+  ns.name = 'None'
+})(app);
+
+console.log(app.name)
+
+
+Recursion:
+
+  let orgChart = {
+    name: 'Michael', subordinates: [
+    {
+      name: 'Andy', subordinates: [
+       {
+         name: 'Dwight', subordinates: []
+       },
+       {
+         name: 'Kevin', subordinates: []
+       }
+      ]
+    }
+
+   ]
+  }
+
+
+let rec = function logNames(obj) {
+  console.log(obj.name)
+  for (subord in obj.subordinates) {
+    logNames(obj.subordinates[subord])
+  }
+}
+
+
+BOM and DOM:
+
+
+Window:
+
+  console.log(window.innerWidth + ', ' + window.outerWidth)
+  window.open('http://google.com', '_blank')
+
+
+ let logEverySecond =  setInterval(function() {
+    console.log(new Date().getSeconds())
+  }, 1000)
+
+  clearInterval(logEverySecond)
+
+
+System dialogs:
+  alert()
+  confirm()
+  prompt()
+
+Location obj:
+
+  location.href
+  location.host
+  location.port
+  location.protocol
+  location.assign()
+
+
+Document:
+
+  document.getElementById('idName')
+  document.getElementByTagName('p')           // returns []
+  document.getELementsByClassName('className')// returns []
+
+  elem.getAttribute('class')
+  elem.setAttribute('class', 'newClassName')
+  elem.childNodes
+    => returns tags and text nodes (white space)
+
+
+ document.querySelector('article')
+ document.querySelector('#id')
+ document.querySelector('.class')
+   => returns first match
+
+ document.querySelectorAll('.class')
+   => [] of .class
+
+
+
+EventListeners:
+   elem.addEventListener('click', callback)
+   elem.removeEventListener('click', callback)
+
+
+   <div id='2'>
+     <div id='1'><
+   </div>
+
+
+Global Functions:
+
+paraseInt('123')
+  => 123
+
+parseInt('d123')
+  => NaN
+
+parseInt('12d4')
+  => 12
+
+parseInt('123.9')
+1  => 23
+
+parseInt(' ');
+  => NaN
+
+parseFloat('123e-1')
+  => 12.3
+
+isFinite(42);
+  => true
+
+isNaN(NaN)
+  => true
+
+encodeURI('\\start\\+');
+ => %5Cstart%5C%+
+
+encodeURIComponent('\\start\\+');
+ => %5Cstart%5C%2B
+
+Math.max(-12, 0, 12 , '88')
+  => 88   // implicit conversion
+
+Math.max(-12, 0, 12 , '88')
+  => -12   // implicit conversion
+
+Math.trunct(2.9)
+  => 2
+
+Math.trunct(-2.9)
+  => -2
+
+trunc works like floor for positive numbers and like ceil for negative numbers
+
+Math.pow(2, 3)
+  => 8
+
+
+'My string'.charAt(3)
+  => "s"
+
+'My string'.indexOf('M')
+  => 0
+
+'Some String'.lastIndexOf('S')
+  => 5
+
+'My string'.includes(' z')
+  => false
+
+'My string'.endsWith('ing')
+  => true
+
+'My String'.slice(3)
+ => 'String'
+
+'My String'.slice(-3)
+ => 'ing'
+
+'My String'.slice(5, 8)  // start index, end index not inclusive
+ => 'Str'
+
+'Some String'.substr(5, 6)  // start index and how many chars
+  => 'String'
+
+'Some String'.substring(5, 6) // start index, end index not inclusive
+  => 'S'

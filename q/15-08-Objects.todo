@@ -1,0 +1,26 @@
+
+✔ Prototypes: @done (16-08-16 17:21)
+  ✔ create obj animal using json and create obj cat with proto of animal @done (16-08-16 17:22)
+
+✔ Define Property": @done (16-08-16 17:21)
+ ✔ what is the default value of writable, enumerable and configurable? @done (16-08-16 17:23)
+ ✔ create properties name and age on person = {}, and use property descriptor to see the results @done (16-08-16 17:23)
+
+ ✔ q: @done (16-08-16 17:21)
+   ✔ how do you check to see if the property exists directly on obj? @done (16-08-16 17:23)
+   ✔ what  do you use to see if the property exists on obj or its proto chain? @done (16-08-16 17:23)
+
+ ✔ wwsic: @done (16-08-16 17:21)
+   let project = { name: 'test'}
+   let secretProject = Object.create(project)
+
+   ✔ project.hasOwnProperty('name'); @done (16-08-16 17:23)
+   ✔ project.hasOwnProperty('toString'); @done (16-08-16 17:23)
+   ✔ project.__proto__.hasOwnProperty('toString') @done (16-08-16 17:23)
+   ✔ Object.isPrototypeOf(project) @done (16-08-16 17:23)
+   ✔ Object.isPrototypeOf(secretProject) @done (16-08-16 17:23)
+   ✔ 'toString' in secretProject @done (16-08-16 17:23)
+
+
+
+

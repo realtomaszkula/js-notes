@@ -1,0 +1,351 @@
+
+
+LET, CONST
+
+  * const and let are block scoped and are not hoisted*
+
+  console.log(pID)
+  var pID = 12
+    => undefined
+
+
+  console.log(pID)
+    => RefferenceError // no hoisting
+  let pID = 12
+
+
+  const SOME_CONST;
+    => Ref Error // must initialize
+
+
+  const SOME_CONST = 10;
+  SOME_CONST = 5;
+    => Type Error
+
+
+  const SOME_CONST = 10
+  if (SOME_CONST > 5) {
+    const SOME_CONST = 5
+  }
+  console.log(SOME_CONST)
+    => 10   // no error, block scoped
+
+ARROW FUNCTIONS
+
+rules:  * can skip parenthesis if one arg
+        * cannot change the context of this with bind, call or apply
+        * no access to prototype
+        * arrow must be on the same line
+
+* this context *
+as long as we use arrow funcions this will not be set to the elemens thats getting the event, but to the context of the code we run
+
+
+let getPrice = count => count * 4.00;
+getPrice(2)
+  => 8
+
+in ES5
+
+  document.addEventListener('click', function() { console.log(this)})
+    => document
+
+in ES6 using arrow
+
+  document.addEventListener('click', () => console.log(this))
+    => window
+
+
+
+in ES5
+
+  var invoice = {
+    number: 123,
+    process: function() { console.log(this)}
+  }
+
+  invoice.process()
+    => invoice {...}
+
+in ES6
+
+   let invoice = {
+     number: 123,
+     process: () => console.log(this)
+   }
+
+   invoice.process()
+     => window
+
+
+   let invoice2 = {
+     number: 123,
+     process: function() {
+         return () =>  console.log(this.number)
+     }
+   }
+
+   invoice2.process()()
+     => 123
+
+
+let test = () => 5.99
+test.prototype
+  => undefined
+
+DEFAULT PARAMETERS
+
+  * have access to prev parameters
+  * have access to variables in context
+  * have access to function in context
+  * arguments inside function refer to args passed, ignores def parms
+  * work with dynamicly generated functions
+
+  let getProduct = function(pid = 1000, type = 'software') {
+    console.log(pid +  ', ' + type)
+  }
+
+  getProduct(undefined, 'hardware')
+    => 1000, hardawre
+
+
+  let getTotal = (price, tax = price * 0.07) => {
+    console.log( price + tax)
+  }
+  getTotal(5.00);
+    => 5.35
+
+
+  let baseTax = 0.07;
+  let getTotal = (price, tax = price * baseTax) {
+    console.log(price + tax);
+  }
+  getTotal(5.00);
+    => 5.35
+
+
+  let generateBaseTax = () =>  0.07;
+  let getTotal = (price, tax = price * generateBaseTax()) {
+    console.log(price + tax)
+  }
+
+  getTotal(5.00);
+    => 5.35
+
+
+  let getTotal = new Function("price = 20.00", "return price");
+  console.log(getTotal());
+    => 20.00
+
+
+REST PARAMS
+
+  rules:
+    * accesing length of a function shows the num of params, rest params don't count
+    * arguments inside function refers to function call
+    * work with dynamiclly generated functions
+
+  let showCategories = (productID, ...categories) => {
+    console.log(categories instanceof Array)
+  }
+
+    => true
+
+  showCategories('123', 'search', 'advertising')
+
+  let showCategories = (productID, ...categories) => {
+    console.log(categories)
+  }
+
+  showCategories('123', 'search', 'advertising')
+    => ['123', 'search', 'advertising']
+
+  let showCategories = function (productID, ...categories){
+    console.log(arguments.length)
+  }
+  showCategories('123', 'search', 'advertising')
+    => 3
+
+
+  let showCategories = new Function("...categories", "return categories")
+  console.log(showCategories("search", "advertising"))
+
+
+SPREAD OPERATOR
+  rules:
+
+
+
+    let prices = [12, 20, 18];
+    let maxPrice = Math.max(...prices);
+      => 20
+
+    let prices = [12, 20, 18];
+    let maxPrice = [...prices];
+      => [12, 20, 18]
+
+
+    let newPriceArray = new Array(...[,,])
+      => [undefined, undefined]    // trailing comma so no 3rd element
+
+
+    let newPriceArray =[...[,,]]
+      => [undefined, undefined]    // trailing comma so no 3rd element
+
+
+    let maxCode = Math.max(..."43210")
+      => 4
+
+    let codeArray = ["A", ..."BCD", "E"]
+      => ["A", "B", "C", "D", "E"]
+
+
+
+OBJECT LITERAL NOTATION
+  rules:
+    * can use shortcut if variable name matches property name
+    * to create dynamic field use []
+
+
+let price = 5,99, quantity = 10;
+let productView = {
+  price,
+  quantity,
+ }
+
+ productView.price
+   => 5.99
+
+
+let productView = {
+  price: 7.99,
+  quantity: 1,
+  calculateValue() {
+    return this.price * this.quantity
+  }
+  "calculate another"() {
+    return this.price * 2
+  }
+}
+
+productView.calculateValue()
+  => 7.99
+
+productView["calculate another"]();
+  => 15.98
+
+
+  let dynamicField = 'dynamicField'
+  let productView = {
+    [dynamicField + '01'] : 5.99
+  }
+
+  => Object {dynamicField01: 5.99}
+
+
+ let ident = 'productId'
+ let productView = {
+   get [ident] () { return true }
+   set [ident] (value) { }
+ }
+
+ console.log(productView.productId)
+
+
+FOR OF LOOP
+
+let codes = 'ABCDE'
+for (let code of codes) {
+  console.log(code)
+}
+
+
+TEMPLATE LITERALS
+
+function tag(strings, ...values) {
+  console.log(strings)
+  console.log(values)
+}
+
+let world = 'world'
+let country = 'Poland'
+tag `Hello ${world} from ${country}`
+
+
+DESTRUCTURING
+
+* can use spread
+* can use defaults values
+* can skip elements, which will leave'em undefined
+* can be used on nested arr
+* can destructure function params
+* cannot destructure null or undefined
+* allows for trailing coma
+
+* Arrays *
+
+let salary = ['3200', '5000', '7500']
+let [ low, avarage, high ] = salary;
+
+let salary = ['3200', '5000']
+let [ low, avarage, high ] = salary;
+console.log(high)
+  => undefined
+
+let salary = ['3200', '5000', '7500']
+let [ low, , high ] = salary;
+console.log(high)
+  => 7500
+
+let salary = ['3200', '5000', '7500']
+let [low, ...remaining] = salary
+console.log(remaining)
+  => [5000, 7500]
+
+
+let salary = ['3200', '5000']
+let [low, avarage, high = 5000] = salary
+console.log(high)
+  => 5000
+
+let salary = ['3200', '5000', ['7500', '9900']]
+let [low, avarage, [actualLow, actualHigh]] = salary
+console.log(actualLow)
+  => '8080'
+
+
+function reviewSalary([low, avarage], high = 7500){
+  console.log(avarage)
+}
+revewSalary(['3200', '5000'])
+=> 5000
+
+
+* Objects *
+
+let salary = {
+  low: '3200',
+  medium: '5000',
+  high: '7500'
+};
+
+let { low, avarage, high } = salary;
+let { low: newLow, avarage: newAvarage, high: newHigh } = salary;   // renaming
+
+let newLow, newAvarage, newHigh;
+({ low: newLow, avarage: newAvarage, high: newHigh} = salary) // need parenthesis if working with variables previously defined
+
+
+* Strings *
+
+let [maxCode, minCode] = 'AZ';
+console.log(maxCode)
+  => 'A'
+
+
+* Inside for of loop *
+
+let arr = [[1,2], [3,4], [5,6]]
+for (let [a, b] of arr) {
+  console.log(`${a} ${b}`)
+}

@@ -113,6 +113,11 @@
 
 
    ADDITION
+   rules:
+     * js engine will always try to convert to string if eny of the operands is a string
+     * null is treated as a zero in addition
+     * impossible addition results in NaN
+
 
    ☐ '200' + 10
      => '20010'
@@ -132,7 +137,11 @@
    ☐ 2000 + nulll
      => 2000
 
-     SUBSTRACTION
+     SUBTRACTION
+     rules:
+       * string will be converted to numbers if possible
+       * null and "" are treated as zero
+       * impossible subtruction results in NaN
 
      ☐ "300" - "200"
        => 100
@@ -160,6 +169,10 @@
        => 27
 
     Division
+    rules:
+      * strings will be converted to numbers if possible
+      * dividing by zero gives Infinity or -Infinity
+      * engine will try to convert strings to numbers
     ☐ 9 / '3'
 
       => 3
@@ -209,7 +222,7 @@
     let nextLevel = --level * base;
 
     console.log(nextLevel)
-      => 50
+      => 40
 
      ☐ what shows in the console?
      let level;
@@ -299,6 +312,147 @@
 
 
      ||
+     rules:
+       * if the first operand is an object that object gets returned
+
+       ☐ what shows in the console?
+       let obj = {
+         calc: 'logical'
+       }
+
+       let value = obj || 98
+       console.log(value)
+         => Object
+
+      ☐ what shows in the console?
+      let defaultSettings = {
+        who: default;
+      }
+
+      let userSettings = {
+        who: default;
+      }
+
+      let value = userSettings || defaultSettings;
+      console.log(value)
+        => Object { who: "user" }
+
+
+      ☐ what shows in the console?
+      let defaultSettings = {
+        who: default;
+      }
+
+      let userSettings;
+
+      let value = userSettings || defaultSettings;
+      console.log(value)
+        => Object { who: "default" }
 
 
 
+    EQUALITY OPERATORS    ==, !==
+
+    rules:
+      * 1 will get converted to true
+      * 0 will get converted to false
+      * strings will try to convert to numbers
+      * objects in numeric context
+            => check valueOf property
+            => check toString property
+      * identical objects have different places in the memory so they're not eq
+      * comparing undefined to anything other than null returns false
+      * comparing null to anything other than undefined returns false
+      * NaN == NaN returns false, NaN is actually a number in numeric context
+
+      ex:
+      console.log( true == 1)
+        => true
+      console.log (true == 2)
+        => false
+      console.log( false == 0 )
+        => true
+
+    ex:
+      console.log( 42 == '42')
+        => true
+
+    ex:
+      let obj = {
+        valueOf: function (){ return 42;}
+      }
+      console.log(42 == obj)
+        => true
+
+
+      let obj = {
+        toString: function (){ return 42;}
+      }
+      console.log(42 == obj)
+        => true
+
+   ex:
+     let obj = {
+       name: 'Trigger'
+     }
+     let obj2 = {
+       name: 'Trigger'
+     }
+
+     console.log(obj == obj2)
+       => false
+    ex:
+      console.log(null == undefined)
+        => true
+
+      console.log(0 == undefined)
+        => false
+    ex:
+      console.log(null == 0)
+        => false
+
+    ex:
+      console.log(NaN == NaN)
+
+
+   EQUALITY OPERATORS    ===, !===
+
+
+   ex:
+   console.log( null === undefined)
+   console.log( false === 0)
+   console.log( '55' === 55)
+   => false
+
+
+   < > <= >=
+
+   rules:
+     * with strings checks ASCI values
+     * upper case values come before lower case values (so they are lower)
+     * when comparing string and number will try to convert string to number
+     * when both operands are string there is no numberic conversion
+     * comparing NaN to number always returns false
+
+  ex:
+    console.log("alpha" < "beta")
+     => true
+
+    console.log("Beta" < "alpha")
+      => true
+
+    console.log( '42' < 144)
+      => true
+
+    console.log( '42' < '144')
+      => false
+
+
+    MISC OPERATORS
+    https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Pierwsze%C5%84stwo_operator%C3%B3w
+
+    var total = 6;
+    total *= 4 + 1
+
+    console.log(total)
+      => 30

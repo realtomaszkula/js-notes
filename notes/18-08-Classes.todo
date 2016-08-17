@@ -1,0 +1,144 @@
+rules:
+  * classes are not hoisted
+  * cannot declare variables inside body of class
+  * do not use commas between functions
+  * use short syntax for functions
+  * can assign classes to variables and use em in expressions
+  * classes do not pollute global object
+  * cannot change context of this inside class with call, apply
+  * can only create static methods
+
+
+  class Task {
+    constructor() {
+      console.log('constructing Task')
+    }
+    showId() {
+      console.log('42')
+    }
+  }
+
+  let task = new Task()
+
+  typeof Task
+    => function
+
+  typeof task
+    => object
+
+  task instanceof Task
+    => true
+
+  task.showId === Task.prototype.showId
+    => true
+
+
+
+  ES5 constructor functions
+    * get hoisted
+    * pollute global window
+    * can change context of this
+
+    let willWork = new Task()   // hoisted, will work
+    function Task() {}
+
+    function Task() {}          // pollution
+    console.log( window.task === Task)
+      => true
+
+    let Task = function () { console.log('constructing') }
+    Task.call({})              // can change this
+
+
+  ES6 classes
+    * do not get hoisted
+    * do not pollute global object
+    * cannot change context of this
+
+
+    let wontWork = new Task()   // error, no hoisting
+    class Task() {}
+
+    class Task {}               // no pollution
+    console.log( window.Task === Task)
+      => false
+
+   class Task { constructor(){ console.log('constructing')}}
+   Task.call({})                // cannot change this
+
+
+
+
+EXTENDING
+
+  rules:
+    * if child has custructor it needs to call super
+    * overwriting happens naturally, just create f with the same name in child
+
+
+    class Project {
+      constructor() {
+         this.location = 'Mazaltan';
+      }
+
+      getTaskCount() { return 50; }
+    }
+
+    class SoftwareProject extends Project {
+      constructor() {
+        super();
+        this.location += ' Beach';
+      }
+
+      getTaskCount() { return super.getTaskCount() + 6; }
+    }
+
+    let sp = new SoftwareProject()
+
+    console.log(  sp.getTaskCount()  )
+      => 56
+    console.log(  sp.location )
+      => 'Malzatan Beach'
+
+OBJECT LITERAL
+
+  let project = {
+    getTaskCount() {return: 50}
+  }
+
+  let softwareProject = {
+    getTaskCount() { return super.getTaskCount() + 6 }
+  }
+
+  Object.setPrototypeOf(softwareProject, project)
+
+  console.log(softwareProject.getTaskCount())
+
+STATIC MEMBERS
+
+  class Project {
+    // static let id = 5; won't work, must be method
+    static getDefaultId() {
+      return 0;
+    }
+  }
+
+  console.log(Project.getDefaultId())
+
+
+  Project.id = 5;
+  console.log(Project.id)
+
+NEW.TARGET
+
+  class Project {
+    constructor() {
+      console.log(new.target)
+    }
+  }
+
+  class SoftwareProject extends Project {
+  }
+
+  let p = new Project()
+  let sp = new SoftwareProject()

@@ -1,0 +1,57 @@
+
+ ✔ add function to object prototype and explain why @done (16-08-16 17:43)
+ ✔ use call to change context of function logging this and two params @done (16-08-16 17:45)
+ ✔ use apply to change context of function logging this and two params @done (16-08-16 17:45)
+ ✔ write function using closures that returns double salary everytime you call it @done (16-08-16 17:49)
+
+ ✔ what are three common ways to use closures? @done (16-08-16 17:49)
+ ✔ write IFFEs in 3 ways @done (16-08-16 17:49)
+
+ ✔ using recursion log out names of employes in this object @done (16-08-16 17:54)
+     let orgChart = {
+       name: 'Michael', subordinates: [
+       {
+         name: 'Andy', subordinates: [
+          {
+            name: 'Dwight', subordinates: []
+          },
+          {
+            name: 'Kevin', subordinates: []
+          }
+         ]
+       }
+
+      ]
+     }
+
+   ✔ write function that will log seconds into the console and clear itself if the seconds match 10 @done (16-08-16 17:56)
+
+   ✔ write function that will log seconds into the console and clear itself after it logs 5 times @done (16-08-16 18:01)
+
+   ✔ what object do you use to get access to browser url @done (16-08-16 18:10)
+   ✔ name 3 system dialogs @done (16-08-16 18:10)
+   ✔ how do you access all child nodes that belong to parent @done (16-08-16 18:10)
+
+   ✔ how to set up event listener to make parent capture event first? @done (16-08-16 18:14)
+   ✔ how to set up event listener to make only the child capture the event? @done (16-08-16 18:14)
+
+
+
+   ✔ parseInt(' ') @done (16-08-16 18:16)
+   ✔ parseInt('12d4') @done (16-08-16 18:16)
+   ✔ parseInt('d123') @done (16-08-16 18:16)
+   ✔ parseInt('123.9') @done (16-08-16 18:16)
+
+   ☐ How to move decimal to one place left with parseFloat()?
+   ✔ How to check if number is not Infinite or -Infinite? @done (16-08-16 18:09)
+   ✔ How to check if number is NaN? @done (16-08-16 18:09)
+   ✔ How to encode string for url submision? Name two functions @done (16-08-16 18:09)
+   ✔ How is trunc diff than floor and ceil @done (16-08-16 18:16
+
+   ☐ write try catch block with custom error and custom error msg
+
+
+   wwsic?
+   ✔ "Some String".slice(0, 3) @done (16-08-16 18:19)
+   ✔ "Some String".substr(5, 6) @done (16-08-16 18:19)
+   ✔ "Some String".substring(5, 6) @done (16-08-16 18:19)

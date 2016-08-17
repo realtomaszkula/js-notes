@@ -1,0 +1,30 @@
+
+import defaultMember from "module-name";
+import * as name from "module-name";
+import { member } from "module-name";
+import { member as alias } from "module-name";
+import { member1 , member2 } from "module-name";
+import { member1 , member2 as alias2 , [...] } from "module-name";
+import defaultMember, { member [ , [...] ] } from "module-name";
+import defaultMember, * as name from "module-name";
+import "module-name";
+
+
+rules:
+  * imports can be accessed as variables, but are read only
+  * can modify properties of imported objects
+  * object properties modified after import affect obj inside module ( two files stay in sync )
+
+// inside module.js
+  export let x = 5;
+  export let y = {
+    value: 10
+  }
+
+// inside base.js
+  import { x, y } from 'module.js'
+
+  console.log(x = 10);
+    => runtime err
+
+  console.log(y.value = 10)

@@ -1,0 +1,73 @@
+
+let, const:
+  ☐ wwsic
+    const test;
+
+    const test2 = 2;
+    test2 = 5;
+
+    console.log(test3)
+    let test3 = 5;
+
+arrow-functions:
+  ☐ wwsic
+  let invoice = {
+    number: 123,
+    process() { console.log(this) }
+  }
+
+  invoice.process()
+
+  let invoice = {
+    number: 123,
+    process: () => { console.log(this) }
+  }
+
+  invoice.process()
+  invoice.process.prototype
+  invoice.process.__proto__
+
+  ✔ How does apply, call and bind change this context with arrow functions? @done (16-08-17 18:47)
+  ✔ Can you use arrow functions as constructors? @done (16-08-17 18:47)
+
+
+default and rest params:
+  ✔ how do you check how many arguments function accepts? @done (16-08-17 18:48)
+  ✔ can default params refer to previous params? @done (16-08-17 18:48)
+  ✔ can default params refer to variables or functions outside of params? @done (16-08-17 18:48)
+  ✔ create dynamic function using Rest parameters @done (16-08-17 18:50)
+  ✔ create dynamic function using default params @done (16-08-17 18:50)
+  ✔ wwsic @done (16-08-17 18:51)
+    let test = function(one, two , ...three) {
+      console.log(arguments.length)
+    }
+
+    test(1)
+    test(1,2,3,4)
+    test.length
+
+
+create json with:
+ ✔ function with dynamic name @done (16-08-17 19:10)
+ ✔ property with dynamic name @done (16-08-17 19:10)
+ ✔ getter and setter with dynamic name @done (16-08-17 19:25)
+ ✔ property with space @done (16-08-17 19:25)
+ ✔ function using shortcut notation @done (16-08-17 19:25)
+ ✔ property using shortcut notation @done (16-08-17 19:25)
+
+for of loop:
+  ✔ iterate over arr @done (16-08-17 19:28)
+  ✔ iterate over string chars @done (16-08-17 19:28)
+
+
+template literals:
+  ✔ create one @done (16-08-17 19:34)
+
+DESCTRUCTURING:
+  ✔ destructure using default params @done (16-08-17 19:39)
+  ✔ destructure using spread @done (16-08-17 19:39)
+  ✔ destructure 2d array @done (16-08-17 19:41)
+  ✔ destructure skipping middle value @done (16-08-17 19:41)
+  ✔ destructure json obj @done (16-08-17 19:47)
+  ✔ destructure json obj with previously defined variables @done (16-08-17 19:47)
+  ✔ destructure 2d array using for of loop @done (16-08-17 19:47)
