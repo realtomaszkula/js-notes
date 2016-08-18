@@ -1,0 +1,9 @@
+
+Objects:
+ ☐ use Object.setPrototypeOf to set prototype chain for two object literals
+ ☐ use Object.assign to merge two objects into new one
+     -> one obj must override property of second obj
+     -> second obj must have prototype of another object
+     -> add property to second object with enumerable false
+ ☐ use Object.is to compare NaN to NaN, 0 to -0
+ ☐ use Object.getOwnPropertySymbols and Object.getOwnPropertyNames
