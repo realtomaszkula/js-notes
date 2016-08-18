@@ -1,0 +1,92 @@
+STRINGS
+
+http://plnkr.co/edit/Y9zxkNhO3kLSL85KX4W3?p=preview
+
+"Santa Barbara Surf Riders".startsWith('Santa')
+"Santa Barbara Surf Riders".endsWith('Riders')
+
+
+use Array.from() to get correct string length if it includes unicode
+
+let surfer = "\u{1f3c4}"
+surfer.length              // 2
+Array.from(surfer).length  // 1
+
+
+let str = "Mazatla\u0301n"
+
+console.log( str.length )              // 9
+console.log( str.normalize().length )  // 8
+
+let wave = '\u{1f30a}'
+console.log( wave.repeat(10))
+
+String.fromCodePoint(0x1f3c4)   // from hex value
+String.raw // does interpolation, but does not process characters in the string
+
+
+REG EXP
+
+
+// unicode flag - /u
+
+let pattern = /\u{1f3c4}/u
+console.log(pattern.test('🏄'))
+
+
+// sticku flag - /y
+
+let pattern = /900/y
+
+console.log(pattern.lastIndex)
+console.log(pattern.test('800900'))
+
+pattern.lastIndex = 3;
+console.log(pattern.test('800900'))
+
+
+// .flags
+let pattern = /900/yg
+console.log(pattern.flags)
+
+
+
+MATH
+
+Math.sign(0)
+Math.sign(-0)
+Math.sign(-20)
+Math.sign(20)
+Math.sign(NaN)
+
+
+Math.cbrt(27)
+Math.trunc(-27)
+Math.trunc(27)
+
+FUNCTIONS
+
+let fn = function calc() {}
+
+console.log(fn.name)   // calc
+
+let fn2 = function () {}
+
+console.log(fn2.name)   // fn2
+
+let newFn = fn2;
+console.log(newFn.name)  // fn2
+
+
+class Calculator {
+  add() {
+
+  }
+}
+
+let c = new Calculator()
+
+console.log(Calculator.name)  // Calculator
+console.log(c.add.name)           // add
+
+// Function.name is not writable but is configurable thru define property

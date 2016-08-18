@@ -1,0 +1,27 @@
+
+  Strings:
+
+    How do you...
+    ☐ check if string starts with or ends with sustring?
+    ☐ string length if it includes unicode char presented by five chars
+    ☐ string length if it includes unicode char presented by four chars
+    ☐ set string from hex value
+
+ RegExp:
+   ☐ check string for unicode presence of two emojis using unicode flag
+   ☐ check string for presence of word using stricky flat
+   ☐ how do you access flags of pattern?
+
+
+ Math:
+   ☐ trunc number, how does it differ from ceil and floor
+   ☐ how do you check for cubic square?
+   ☐ how do you check for sign? what are possible values
+
+ Functions:
+   access names for...
+   ☐ regular function
+   ☐ anon func assigned to variable
+   ☐ anon func assinged to variable and reassinged to another var
+   ☐ class
+   ☐ instance method
