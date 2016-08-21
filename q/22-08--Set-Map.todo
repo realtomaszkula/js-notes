@@ -1,0 +1,32 @@
+
+
+ Map:
+   ☐ how does map differ from objects?
+   ☐ create map and add three objects using .set
+   ☐ check if the map includes key
+   ☐ check the size of map
+   ☐ delete one element
+   ☐ delete all elements
+   ☐ create set passing in array
+   ☐ access entries
+   ☐ access keys
+   ☐ access values
+
+Set:
+  ☐ do sets have key value pairs?
+  ☐ are values uniq?
+  ☐ what will be returned from .keys, .values, .entries?
+
+  ☐ create set using .add
+  ☐ create set passing in array
+  ☐ create set passing in ite
+
+WeakSet:
+ ☐ can you access size?
+ ☐ can you use primitive types as keys?
+ ☐ how to check if obj exists inside weakset?:
+
+Subclassing:
+ ☐ extend array with sum function
+ ☐ extend array with unique function
+ ☐ extend array with last and first function

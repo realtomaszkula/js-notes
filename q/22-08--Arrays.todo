@@ -1,0 +1,31 @@
+Arrays:
+  ☐ create array using Array consructor that consists of element
+
+Array.from:
+  ☐ using Array.from create arr with lambda function
+  ☐ using Array.from create arr with lambda funciton passing obj as this
+
+
+Array.fill:
+  ☐ fill entire arr with 42
+  ☐ fill array from index
+  ☐ fill array from negative index
+  ☐ fill array from-to index
+
+Array.find:
+ ☐ what arguments get passed to callback function?
+ ☐ use find with arrow f
+ ☐ use find with normal f
+ ☐ use find and pass obj as this
+
+Array.within:
+  arr = [1, 2, 3, 4, 5, 6, 7, 8]
+
+  ☐ replace 3 with 5
+  ☐ replace 5, 6 with 3, 4 (using negative indx)
+  ☐ replace 1,2,3 and 5, 6, 7
+  ☐ replace 7, 8 with 1, 2
+  ☐ replace 4, 5, 6 with 1, 2, 3
+
+Array.keys, values, entries:
+  ☐ access all of the above
