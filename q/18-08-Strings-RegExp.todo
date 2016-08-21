@@ -2,26 +2,26 @@
   Strings:
 
     How do you...
-    ☐ check if string starts with or ends with sustring?
-    ☐ string length if it includes unicode char presented by five chars
-    ☐ string length if it includes unicode char presented by four chars
-    ☐ set string from hex value
+    ✔ check if string starts with or ends with sustring? @done (16-08-18 18:49)
+    ✔ string length if it includes unicode char presented by five chars @done (16-08-18 18:49)
+    ✔ string length if it includes unicode char presented by four chars @done (16-08-18 18:49)
+    ✔ set string from hex value @done (16-08-18 18:50)
 
  RegExp:
-   ☐ check string for unicode presence of two emojis using unicode flag
-   ☐ check string for presence of word using stricky flat
-   ☐ how do you access flags of pattern?
+   ✔ check string for unicode presence of two emojis using unicode flag @done (16-08-18 18:52)
+   ✔ check string for presence of word using stricky flat @done (16-08-18 19:02)
+   ✔ how do you access flags of pattern? @done (16-08-18 19:02)
 
 
  Math:
-   ☐ trunc number, how does it differ from ceil and floor
-   ☐ how do you check for cubic square?
-   ☐ how do you check for sign? what are possible values
+   ✔ trunc number, how does it differ from ceil and floor @done (16-08-18 18:57)
+   ✔ how do you check for cubic square? @done (16-08-18 19:02)
+   ✔ how do you check for sign? what are possible values @done (16-08-18 19:02)
 
  Functions:
    access names for...
-   ☐ regular function
-   ☐ anon func assigned to variable
-   ☐ anon func assinged to variable and reassinged to another var
-   ☐ class
-   ☐ instance method
+   ✔ regular function @done (16-08-18 19:04)
+   ✔ anon func assigned to variable @done (16-08-18 19:04)
+   ✔ anon func assinged to variable and reassinged to another var @done (16-08-18 19:04)
+   ✔ class @done (16-08-18 19:04)
+   ✔ instance method @done (16-08-18 19:04)

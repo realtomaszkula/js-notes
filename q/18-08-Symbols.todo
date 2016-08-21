@@ -1,12 +1,12 @@
 
   Symbols:
- ☐ prove that two symbols created with the same name are uniq
- ☐ add symbol to global registry
- ☐ access symbol from global registry
- ☐ create object literal with two properties, one regular and one with symbol name
- ☐ how do you print property names of objects( symbol-named and regular-named)
+ ✔ prove that two symbols created with the same name are uniq @done (16-08-18 23:46)
+ ✔ add symbol to global registry @done (16-08-18 23:46)
+ ✔ access symbol from global registry @done (16-08-18 23:46)
+ ✔ create object literal with two properties, one regular and one with symbol name @done (16-08-19 00:00)
+ ✔ how do you print property names of objects( symbol-named and regular-named) @done (16-08-19 00:00)
 
  Present use of:
- ☐ toStringTag
- ☐ isConcatSpreadableTag
- ☐ toPrimitiveTag
+ ✔ toStringTag @done (16-08-19 17:02)
+ ✔ isConcatSpreadableTag @done (16-08-19 17:02)
+ ✔ toPrimitiveTag @done (16-08-19 17:02)

@@ -1,8 +1,8 @@
 Modules:
 
-  ☐ export/import named variable and function
-  ☐ make aliases for variable and function
-  ☐ can you access previous name of aliased import? prove it
-  ☐ export/import default
-  ☐ import everything from one file
-  ☐ can you change named imports? what about objects imported? prove it
+  ✔ export/import named variable and function @done (16-08-18 18:36)
+  ✔ make aliases for variable and function @done (16-08-18 18:36)
+  ✔ can you access previous name of aliased import? prove it @done (16-08-18 18:36)
+  ✔ export/import default @done (16-08-18 18:36)
+  ✔ import everything from one file @done (16-08-18 18:36)
+  ✔ can you change named imports? what about objects imported? prove it @done (16-08-18 18:36)

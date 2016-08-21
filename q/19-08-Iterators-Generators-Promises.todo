@@ -1,0 +1,36 @@
+
+☐ Iterators:
+  ✔ create obj with iterator method(with terminates after 5 calls) @done (16-08-21 13:57)
+
+☐ Generators:
+  ✔ create generator that yields single number @done (16-08-21 13:58)
+  ✔ create id generator that yields indefinitely @done (16-08-21 13:58)
+  ✔ create generator that takes argument and logs to console @done (16-08-21 13:59)
+  ✔ create generator that creates array from 3 yields @done (16-08-21 14:00)
+  ✔ create generator with iterator delegation @done (16-08-21 14:01)
+  ✔ throw inside generator and catch exception @done (16-08-21 14:02)
+  ✔ use return to wrap up generator @done (16-08-21 14:02)
+
+☐ Promises:
+  ✔ create a promise and handle success and error @done (16-08-21 14:07)
+  ✔ add custom message when handling success and error @done (16-08-21 14:07)
+  ✔ add another .then and sens a message from prev success handler @done (16-08-21 14:07)
+  ✔ catch errors from promise @done (16-08-21 14:07)
+  ✔ immedietly resolve and reject promise with msg @done (16-08-21 14:07)
+  ✔ present use of Promise.all, when does it resolve? @done (16-08-21 14:07)
+  ✔ present use of Promuse.race, when does it resolve? @done (16-08-21 14:07)
+
+
+
+  function *foo(x) {
+      var y = 2 * (yield (x + 1));
+      var z = yield (y / 3);
+      return (x + y + z);
+  }
+
+  var it = foo( 5 );
+
+  // note: not sending anything into `next()` here
+  console.log( it.next() );       // { value:6, done:false }
+  console.log( it.next( 12 ) );   // { value:8, done:false }
+  console.log( it.next( 13 ) );   // { value:42, done:true }

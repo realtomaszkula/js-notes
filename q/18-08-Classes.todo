@@ -1,16 +1,16 @@
 
 
  Classes (prove answer for each q):
-   ☐ Do ES6 classes get hoisted?
-   ☐ Do ES6 classes pollute global object?
-   ☐ Can you change the context of this in ES6 class?
+   ✔ Do ES6 classes get hoisted? @done (16-08-20 16:54)
+   ✔ Do ES6 classes pollute global object? @done (16-08-20 16:54)
+   ✔ Can you change the context of this in ES6 class? @done (16-08-20 16:54)
 
 
-   ☐ when do you have to use super in child constructor?
-   ☐ extend base class and use super in childs method
-   ☐ create static method on a class
-   ☐ create static property on a class
-   ☐ access child's static method inside parents method
+   ✔ when do you have to use super in child constructor? @done (16-08-20 16:54)
+   ✔ extend base class and use super in childs method @done (16-08-20 16:55)
+   ✔ create static method on a class @done (16-08-20 16:58)
+   ✔ create static property on a class @done (16-08-20 16:58)
+   ✔ access child's static method inside parents method @done (16-08-20 17:03)
 
-   ☐ create inheirtance chain with object literal
+   ✔ create inheirtance chain with object literal @done (16-08-20 17:03)
 

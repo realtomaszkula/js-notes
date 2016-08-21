@@ -1,0 +1,115 @@
+
+Iterators:
+
+http://plnkr.co/edit/Y7KspoYNeXxG6BBrjFcr?p=info
+
+let idMaker = {
+  [Symbol.iterator]() {
+    let nextId = 1;
+    return {
+      next() {
+        let value = (nextId > 5) ? undefined : nextId++;
+        let done = !value;
+        return { value, done };
+      }
+    };
+  }
+};
+
+for (let id of idMaker) {
+  console.log(id)
+}
+
+Generators:
+  http://plnkr.co/edit/RYG3tqba1bd9J7SJuCNc?p=info
+function *process() {
+  yield 8000;
+  yield 8001;
+}
+
+let it = process()
+it.next()
+it.next()
+console.log(it.next())
+
+
+
+// works indefinetly
+function *process() {
+  let id = 0;
+  while(true) yield (id++)
+}
+
+let it = process();
+console.log(it.next().value)
+
+for(let id of process()) {
+  if ( id > 10 ) { break; }
+  console.log(id)
+}
+
+
+
+http://plnkr.co/edit/hupa71jvKIquPGDpHWnd?p=info
+function *process() {
+  console.log(yield)
+}
+
+let it = process()
+it.next()
+it.next("Hello world")
+
+
+function *anotherProcess() {
+  let arr = [yield, yield, yield]
+  console.log(arr[2])
+}
+
+let itt = anotherProcess();
+console.log(itt.next())  // start off generator
+console.log(itt.next(1))
+console.log(itt.next(2))
+console.log(itt.next(3))
+
+function *yetAnotherProcess() {
+  yield 42;
+  yield* [1,2,3]
+}
+
+let ittt = yetAnotherProcess()
+console.log(ittt.next().value)
+console.log(ittt.next().value)
+console.log(ittt.next().value)
+console.log(ittt.next().value)
+console.log(ittt.next().value)
+
+
+
+
+http://plnkr.co/edit/1ArIp4j1O7nDhxFcyIrF?p=preview
+function *process() {
+  try {
+    yield 40;
+    yield 41;
+    yield 42;
+  } catch(e) {
+
+  }
+}
+
+
+let it = process()
+console.log(it.next().value)
+console.log(it.throw('foo'))
+console.log(it.next().value)
+
+
+function *process2() {
+  yield 1;
+  yield 2;
+}
+
+let itt = process2()
+
+console.log(itt.next().value)
+console.log(itt.return('finish'))
