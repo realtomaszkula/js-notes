@@ -1,0 +1,96 @@
+Array.of:
+
+in ES5
+  Array(9000) creates array of this length
+
+in ES6
+  Array.of(9000)
+    => [9000]
+
+
+Array.from:
+  http://plnkr.co/edit/ZuMi22EusVWU5Vhswjlx?p=preview
+
+  let amount = [100, 200, 300];
+  let salary = Array.from( amount, v => v + 50)
+  console.log( salary )
+
+  let salary2 = Array.from( amount, function(v) {
+    return v + this.adjustment
+  }, { adjustment: 50 } );
+  console.log( salary2 )
+
+
+  // cannot use arrow, as this will be window obj
+  let salary3 = Array.from( amount, v => v + this.adjustment, { adjustment: 50})
+  console.log( salary3 )
+
+
+Array.fill:
+  http://plnkr.co/edit/W16O4WkhmZBPAfgqXpyt?p=info
+
+
+  let amount = [100, 200, 300];
+  amount.fill(900)
+  console.log( amount )
+
+
+  let amount2 = [100, 200, 300]
+  amount2.fill(900, 1) // start filling at index
+  console.log( amount2 )
+
+  let amount3 = [100, 200, 300]
+  amount3.fill(900, -2) // can use negative inx to start from end
+  console.log( amount3 )
+
+
+  let amount4 = [100, 200, 300]
+  amount4.fill(900, 1, 2) // start filling at index and fill to not incl
+  console.log( amount4 )
+
+
+Array.find,  Array.findIndex:
+  http://plnkr.co/edit/WbuOMYFdxypXSs0N1uO7?p=preview
+
+  let salary = [600, 700, 800]
+  let result = salary.find( v => v > 750 )
+  console.log( result )
+
+  let result2 = salary.find( v => v > 650 )
+  console.log( result2 ) // only first match
+
+  let result3 = salary.findIndex( v => v > 750 )
+  console.log( result3 )
+
+  // both functions' callbacks take three args, value, index, and array
+  let result4 = salary.find( (v, i, a) => v === 700)
+
+  // can pass obj as third argument
+  let result5 = salary.find( function(v) {
+    return v == this
+  }, 700)
+
+  console.log( result5 )
+
+Array.copyWithin:
+  http://plnkr.co/edit/yhI6GI0zP5oeAftJFtru?p=preview
+
+  let arr = [600, 700, 800]
+  arr.copyWithin(2, 0)
+  console.log( arr )
+
+  let arr2 = [1, 2, 3, 4, 5]
+  arr2.copyWithin(0, 1)
+  console.log( arr2 )
+
+  let arr3 = [1, 2, 3, 4, 5]
+  arr3.copyWithin(3, 0, 2)
+  console.log( arr3 )
+
+Array.entries, .values, keys:
+
+  let arr = [600, 700, 800]
+
+  console.log( ...arr.entries() )
+  console.log( ...arr.keys() )
+  console.log( ...arr.values() )

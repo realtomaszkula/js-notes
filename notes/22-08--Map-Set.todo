@@ -1,0 +1,100 @@
+
+Map:
+  ☐ key value pairs, but key can be an object
+  http://plnkr.co/edit/ERcQjvdY0bYA3wXPxgxx
+
+  let employee1 = { name: 'Jake' }
+  let employee2 = { name: 'Janet' }
+
+  let employees = new Map();
+
+  employees.set( employee1, 'ABC')
+  employees.set( employee2, '123')
+
+  console.log(employees)
+  console.log(employees.has(employee1))
+  console.log(employees.get(employee1))
+  console.log(employees.size)
+
+  employees.delete(employee2)
+
+  console.log(employees.size)
+
+  employees.clear()
+
+  console.log(employees.size)
+
+  http://plnkr.co/edit/sJs9xGszvEiTiWX4OTSA
+
+  let employee1 = { name: 'Jake' }
+  let employee2 = { name: 'Janet' }
+
+  let arr = [
+    [ employee1, "ABC"],
+    [ employee2, "123"]
+  ]
+
+  let employees = new Map(arr)
+
+  console.log( employees.size )
+
+  let values = [ ...employees.values() ]
+  let keys = [ ...employees.keys() ]
+  let entries = [ ...employees.entries() ]
+
+
+  console.log(values)
+  console.log(keys)
+  console.log(entries)
+
+  http://plnkr.co/edit/ngP0giPSHEdeSoQjVVsA
+
+  let employee1 = { name: 'Jake' }
+  let employee2 = { name: 'Janet' }
+
+  let arr = [
+    [ employee1, "ABC"],
+    [ employee2, "123"]
+  ]
+
+  let employees = new WeakMap(arr)
+
+  console.log( employees.size )  // cannot check size of weakmap
+
+
+Set:
+  ☐ no key value pairs, guarantees uniqueness
+  ☐ .keys() .values() return the same thing, .entries() returs duplicate
+
+  http://plnkr.co/edit/Ag5lpRpqCWUnLp5EZEnw?p=preview
+
+  let perks = new Set()
+
+  perks.add('Cat')
+  perks.add('Cat') // won't add, must be unique
+
+  console.log( perks.size )
+
+  let perks2 = new Set()
+  perks2.add( { name: 'Tomasz' })
+  perks2.add( { name: 'Tomasz' })  // will add
+
+  console.log( perks2.size )
+
+  // creating Set from iterator (arr)
+  let diffPerks = new Set(['Car', '10 weeks vacation', 'Jet'])
+
+  // creating set from itterator (set)
+
+  let perks3 = new Set( diffPerks )
+
+  console.log( perks3.has('Car') )
+  console.log( ...perks3.keys() )
+  console.log( ...perks3.values() )
+  console.log( ...perks3.entries() )
+
+ WeakSet:
+   ☐ holds weak reference to object
+   ☐ cannot use primitive types as keys
+   ☐ cannot access size
+   ☐ to see if the obj exists in the set use .has method

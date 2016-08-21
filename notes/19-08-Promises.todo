@@ -1,0 +1,87 @@
+http://plnkr.co/edit/XzhN1NjwL4bSKaZivHhH
+Chaining then, success and error callback and passing messages:
+
+function doAsync() {
+  return new Promise( (resolve, reject) => {
+    console.log('in promise code')
+    setTimeout( () => {
+      console.log('resolving ...')
+      resolve('OK!')
+      // reject('FATAL ERROR')
+    }, 1000)
+  })
+}
+
+doAsync().then( success, error ).then( success2 )
+
+function success(value) {
+  console.log('Fulfilled! ' + value)
+  return 'This will get passed to success2'
+}
+
+function error(reason) {
+  console.log( 'Rejected! ' + reason )
+}
+
+function success2(value) {
+  console.log('Really ' + value)
+}
+
+
+http://plnkr.co/edit/NgWXtbl3uv3TSqtUSUIv?p=info
+Catching reject():
+
+function doAsync() {
+  return new Promise( (resolve, reject) => {
+    console.log('in promise code')
+    setTimeout( () => {
+      console.log('resolving ...')
+      // resolve('OK!')
+      reject('FATAL ERROR')
+    }, 1000)
+  })
+}
+
+doAsync().catch(function(reason) {
+  console.log('Catching error: ' + reason)
+})
+
+
+
+http://plnkr.co/edit/kbmuZRhfGMNAZfuQZTN1?p=info
+Passing another promise to resolve():
+
+function doAsync() {
+  return new Promise( (resolve, reject) => {
+    console.log('in promise code')
+    setTimeout( () => {
+      console.log('resolving ...')
+      resolve( getAnotherPromise() )  // can pass another promise to resolve
+    }, 1000)
+  })
+}
+
+doAsync().then( success, error )
+
+
+
+http://plnkr.co/edit/G4fq7sFqxkFOb00IbhId?p=preview
+Promise.resolve():
+Promise.reject():
+
+
+function doAsync() {
+  // some code that will figure out if there is need for async
+  return Promise.resolve('instanly resolved')
+  // return Promise.reject('instanly rejected')
+}
+
+doAsync().then( success, error )
+
+function success() {
+  console.log('Fulfilled!')
+}
+
+function error(reason) {
+  console.log( 'Rejected!')
+}

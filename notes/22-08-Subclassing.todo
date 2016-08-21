@@ -1,0 +1,21 @@
+Subclassing:
+
+  http://plnkr.co/edit/vI6P3YODLxiQib13x398?p=preview
+
+  class Perks extends Array {
+    sum() {
+      let total = 0;
+      this.map( v => total += v )
+      return total
+    }
+  }
+
+  let a = Perks.from( [1,2,3] )
+  let b = a.reverse()
+
+  console.log( a instanceof Perks )
+  console.log( a instanceof Array )
+  console.log( b instanceof Perks )
+  console.log( b instanceof Array )
+
+  console.log( a.sum() )
