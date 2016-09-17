@@ -1,0 +1,49 @@
+☐ what's the difference between using .snapshot od .params in ngOnInit hook?
+☐ will the router reuse the component if the params change?
+
+
+HeroService:
+  ☐ create module
+  ☐ create crisis-router with child routes
+    -> redirect to crisis-center
+    -> crisis-center 'crisis-center'
+      -> crisis-list ''
+        -> crisis-detail ':id'  // will be reused
+        -> crisis-home ''
+  ☐ retrieve crisis using observable params
+  ☐ pass optional parameter and highlight active crisis when navigating back to crisis-list
+  ☐ add cancel and save button that is followed by redirection
+      ( navigate relatively from hero-list to hero-detail and back )
+ ☐ add dialog service that return a promise
+ ☐ add can deactivate guard for navigating witout saved changes
+ ☐ prefetch component data with resolve, create crisis-detail-resolve.service
+
+Admin:
+ ☐ create lazy loaded admin module with following components: dashboard, manage-crisis, admin
+
+ ☐ create router with following structure:
+  -> admin-comp ''
+  G[ca]
+    -> ''
+    G[cac]
+      -> crisises  'crisises'
+      -> dashboard ''
+Login:
+ ☐ add auth login mock service which stores redirectUrl for reuse after failed guard
+ ☐ add login component with login and logout button that use login mock service to log in
+
+Guards:
+  Create AuthGuard with following guards:
+   ☐  CanActivate
+   ☐  CanActivateChildren
+   ☐  CanLoad (app router)
+
+   if any of guards fail do the following:
+   * store url for redirect in auth service,
+   * navigate to login
+   * if loggin succedes redirect to stored url
+
+NavigationExtras:
+  ☐ create mocked queryParams(sessionID) and fragment inside AuthGuard
+  ☐ preserveFragment/preserveQueryParams in login component during navigation to admin comp
+  ☐ show NavExtras inside Admin dashboard using async pipe

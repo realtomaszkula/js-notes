@@ -1,0 +1,8 @@
+ ✔ scale button in and out ( 0 to 1) @done (16-09-14 14:41)
+ ☐ translate button in and out (0 to 100)
+ ☐ define animation style and transition in line
+
+ ✔ create 6way translate (active <=> inactive and void for each) with scale and tranlateX @done (16-09-14 14:47)
+ ✔ create oversliding keyframes animation for button with opacity and translateX @done (16-09-14 15:02)
+ ☐ use group to pass different animation for different css properties (width ) @done (16-09-13 15:39)
+ ☐ capture animation start and end and log it to console

@@ -1,0 +1,7 @@
+
+
+ ☐ two way bind input and select form
+ ☐ add css required classes for input fields, based on angualr classes
+ ☐ add hidden div that warns about validations
+ ☐ reset form
+ ☐ hide submit button when form is invalid

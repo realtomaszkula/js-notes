@@ -1,0 +1,4 @@
+ ☐ name all lifecycle hooks
+ ☐ create logger serivce with tic method for logging changes
+ ☐ create spy directive with component
+ ☐ create DC-OC component for hero.name and power

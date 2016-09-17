@@ -1,0 +1,4 @@
+ ✔ create core module with title component and user service @done (16-09-14 15:31)
+ ✔ make user service configurable with custom config that overrides mocked name @done (16-09-14 15:31)
+ ✔ create shared module with highlight directive and awesome pipe, reexport FormsModule and Common module @done (16-09-14 15:37)
+ ☐ add three feature modules, one eagerly loaded, and two lazy loaded (one must have its own router outlet)

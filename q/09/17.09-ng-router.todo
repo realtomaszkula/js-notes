@@ -1,0 +1,17 @@
+
+
+ ☐ what's the difference between using .snapshot od .params in ngOnInit hook?
+ ☐ will the router reuse the component if the params change?
+
+ HeroService:
+   ☐ create hero-list, hero-detail, hero-service, hero-module
+   ☐ create hero-router with child routes
+     -> redirect to crisis-center
+     -> crisis-center 'crisis-center'
+       -> crisis-list ''
+         -> crisis-detail ':id'  // will be reused
+         -> crisis-home ''
+
+   ☐ retrieve hero using observable params, add save and cancle button, ngModel with editName
+   ☐ pass optional parameter and highlight active hero when navigating back to hero-list
+   ☐ animate changes between components

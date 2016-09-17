@@ -1,0 +1,6 @@
+ ☐ create logger provider
+ ☐ create better logger which uses hero service to append name
+ ☐ redirect using old logger to new logger instance
+
+ ☐ create provider object literal
+ ☐ create optional provider

@@ -1,0 +1,6 @@
+☐ do not use _ with private variables
+☐ Input() and Output() inline
+☐ create import barrel
+☐ alphabetize functions and imports
+☐ logic in services! component should only have logic for the view
+☐ do not use 'on' prefix for Output()

@@ -1,0 +1,12 @@
+
+ ☐ use Input() and Output() with EvenEmitter to emit event delete event
+ ☐ use alias to change the name of output
+ ☐ use ngModel to change two way bindings
+ ☐ ngIf removes or hides components?
+ ☐ write ngSwitch
+ ☐ what is a template input variable
+ ☐ what is a template reference variable
+ ☐ use ngFor with index, first, last, even and odd
+ ☐ use json pipe, date pipe
+ ☐ use angular safe navigation operator to avoid crashing app
+ ☐ name the correct varaible and method placement inside a class
